@@ -1,0 +1,11 @@
+.env
+.idea/
+.pytest_cache/
+.ipynb_checkpoints/
+.vagrant/
+__pycache__/
+lightning_logs/
+outputs/
+venv/
+wandb/
+artifacts/
