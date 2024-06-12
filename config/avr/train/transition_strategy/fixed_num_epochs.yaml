@@ -1,0 +1,2 @@
+_target_: avr.train.transition_strategy.FixedNumEpochsTransitionStrategy
+num_epochs: 3

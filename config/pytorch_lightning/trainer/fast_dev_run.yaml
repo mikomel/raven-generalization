@@ -1,0 +1,6 @@
+defaults:
+  - default
+limit_train_batches: 8
+limit_val_batches: 2
+limit_test_batches: 2
+max_epochs: 1

@@ -1,0 +1,5 @@
+_target_: avr.task.rpm.pgm.module.PgmModule
+rule_predictor: ${SplitImagesRulePredictor:SUM_ACT}
+joint_target_rule_predictor: ${JointTargetRulePredictor:LINEAR}
+rules_loss_scale: 1.0
+joint_target_rule_loss_scale: 0.0

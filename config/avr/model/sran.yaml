@@ -1,0 +1,2 @@
+_target_: avr.model.sran.SRAN
+embedding_size: 128

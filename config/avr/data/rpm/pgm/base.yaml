@@ -1,0 +1,29 @@
+rule_encoder: ${PGMRuleEncoder:sparse}
+regime: neutral
+train:
+  _target_: avr.data.rpm.pgm.dataset.PgmDataset
+  dataset_root_dir: ${datasets_dir}/${pgm_dataset_name}/${avr.data.rpm.pgm.regime}
+  splits:
+    - ${DatasetSplit:TRAIN}
+  image_size: ${image_size}
+  do_shuffle_answers: True
+  rule_encoder: ${avr.data.rpm.pgm.rule_encoder}
+  num_answers: ${num_answers}
+val:
+  _target_: avr.data.rpm.pgm.dataset.PgmDataset
+  dataset_root_dir: ${datasets_dir}/${pgm_dataset_name}/${avr.data.rpm.pgm.regime}
+  splits:
+    - ${DatasetSplit:VAL}
+  image_size: ${image_size}
+  do_shuffle_answers: False
+  rule_encoder: ${avr.data.rpm.pgm.rule_encoder}
+  num_answers: ${num_answers}
+test:
+  _target_: avr.data.rpm.pgm.dataset.PgmDataset
+  dataset_root_dir: ${datasets_dir}/${pgm_dataset_name}/${avr.data.rpm.pgm.regime}
+  splits:
+    - ${DatasetSplit:TEST}
+  image_size: ${image_size}
+  do_shuffle_answers: False
+  rule_encoder: ${avr.data.rpm.pgm.rule_encoder}
+  num_answers: ${num_answers}

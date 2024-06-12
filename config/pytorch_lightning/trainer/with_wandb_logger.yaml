@@ -1,0 +1,7 @@
+defaults:
+  - default
+logger:
+  - _target_: pytorch_lightning.loggers.WandbLogger
+    project: ${wandb_project}
+    log_model: ${wandb_log_model}
+    save_dir: ${log_dir}

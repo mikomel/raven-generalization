@@ -1,0 +1,5 @@
+_target_: avr.model.context_blind.ContextBlindWildResNet
+embedding_size: 128
+num_answers: ${num_answers}
+num_input_channels: 1
+resnet_name: resnet50

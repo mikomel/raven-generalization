@@ -1,0 +1,7 @@
+_target_: avr.model.copinet.CoPINet
+embedding_size: 128
+num_attr: 10
+num_rule: 6
+sample: False
+dropout: False
+image_size: ${image_size}

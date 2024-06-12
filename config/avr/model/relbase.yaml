@@ -1,0 +1,3 @@
+_target_: avr.model.relbase.RelBase
+embedding_size: 128
+num_context_panels: 8

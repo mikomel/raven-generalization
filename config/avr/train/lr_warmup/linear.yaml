@@ -1,0 +1,3 @@
+_target_: avr.train.lr_warmup.LinearLRWarmup
+num_steps: 500
+initial_lr: ${learning_rate}

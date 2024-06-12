@@ -1,0 +1,43 @@
+defaults:
+  - avr/model: pong
+  - avr/datamodule: rpm_raven
+  - avr/data/rpm/raven: base
+  - avr/task/rpm/raven: base
+  - avr/data/rpm/pgm: base
+  - avr/task/rpm/pgm: base
+  - avr/train/lr_warmup: base
+  - avr/train/transition_strategy: early_stopping
+  - pytorch_lightning/trainer: default
+  - torch/data_loader: default
+  - torch/optimizer: adam
+  - torch/scheduler: reduce_on_plateau
+  - _self_
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+avr:
+  problem: rpm
+  dataset: raven
+datasets_dir: /app/data
+log_dir: /app/logs
+seed: 42
+batch_size: 128
+learning_rate: 0.001
+max_epochs: 150
+monitor: val/loss/target
+early_stopping_patience: 15
+image_size: 80
+num_answers: 8
+num_pgm_rules: 50
+num_raven_rules: 40
+num_workers: 8
+raven_dataset_name: I-RAVEN
+pgm_dataset_name: PGM
+wandb_log_model: True
+wandb_project: raven-generalization
+hydra:
+  run:
+    dir: ${log_dir}/outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+torch:
+  float32_matmul_precision: medium
+  compile: False
+experiment_tag: default

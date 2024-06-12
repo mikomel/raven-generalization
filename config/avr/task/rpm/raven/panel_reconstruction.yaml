@@ -1,0 +1,4 @@
+_target_: avr.task.rpm.raven.panel_reconstruction_module.RavenPanelReconstructionModule
+rule_predictor: ${SplitImagesRulePredictor:SUM_ACT}
+rules_loss_scale: 1.0
+reconstruction_loss_scale: 100.0

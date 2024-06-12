@@ -1,0 +1,9 @@
+_target_: avr.model.wild_relation_network.WildRelationNetwork
+num_channels: 32
+embedding_size: 128
+image_size: ${image_size}
+use_object_triples: False
+use_layer_norm: True
+g_depth: 3
+f_depth: 2
+f_dropout_probability: 0.0

@@ -1,0 +1,6 @@
+_target_: avr.model.cpcnet.CPCNet
+image_size: ${image_size}
+num_rows: 3
+num_cols: 3
+num_channels: 64
+embedding_size: 128

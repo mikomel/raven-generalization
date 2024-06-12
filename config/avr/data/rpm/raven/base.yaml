@@ -1,0 +1,52 @@
+rule_encoder: ${RavenRuleEncoder:sparse}
+train:
+  _target_: avr.data.rpm.raven.dataset.RavenDataset
+  dataset_root_dir: ${datasets_dir}/${raven_dataset_name}
+  configurations:
+    - ${RavenConfiguration:CENTER_SINGLE}
+    - ${RavenConfiguration:DISTRIBUTE_FOUR}
+    - ${RavenConfiguration:DISTRIBUTE_NINE}
+    - ${RavenConfiguration:LEFT_CENTER_SINGLE_RIGHT_CENTER_SINGLE}
+    - ${RavenConfiguration:UP_CENTER_SINGLE_DOWN_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_CENTER_SINGLE_OUT_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_DISTRIBUTE_FOUR_OUT_CENTER_SINGLE}
+  splits:
+    - ${DatasetSplit:TRAIN}
+  image_size: ${image_size}
+  do_shuffle_answers: True
+  rule_encoder: ${avr.data.rpm.raven.rule_encoder}
+  num_answers: ${num_answers}
+val:
+  _target_: avr.data.rpm.raven.dataset.RavenDataset
+  dataset_root_dir: ${datasets_dir}/${raven_dataset_name}
+  configurations:
+    - ${RavenConfiguration:CENTER_SINGLE}
+    - ${RavenConfiguration:DISTRIBUTE_FOUR}
+    - ${RavenConfiguration:DISTRIBUTE_NINE}
+    - ${RavenConfiguration:LEFT_CENTER_SINGLE_RIGHT_CENTER_SINGLE}
+    - ${RavenConfiguration:UP_CENTER_SINGLE_DOWN_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_CENTER_SINGLE_OUT_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_DISTRIBUTE_FOUR_OUT_CENTER_SINGLE}
+  splits:
+    - ${DatasetSplit:VAL}
+  image_size: ${image_size}
+  do_shuffle_answers: False
+  rule_encoder: ${avr.data.rpm.raven.rule_encoder}
+  num_answers: ${num_answers}
+test:
+  _target_: avr.data.rpm.raven.dataset.RavenDataset
+  dataset_root_dir: ${datasets_dir}/${raven_dataset_name}
+  configurations:
+    - ${RavenConfiguration:CENTER_SINGLE}
+    - ${RavenConfiguration:DISTRIBUTE_FOUR}
+    - ${RavenConfiguration:DISTRIBUTE_NINE}
+    - ${RavenConfiguration:LEFT_CENTER_SINGLE_RIGHT_CENTER_SINGLE}
+    - ${RavenConfiguration:UP_CENTER_SINGLE_DOWN_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_CENTER_SINGLE_OUT_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_DISTRIBUTE_FOUR_OUT_CENTER_SINGLE}
+  splits:
+    - ${DatasetSplit:TEST}
+  image_size: ${image_size}
+  do_shuffle_answers: False
+  rule_encoder: ${avr.data.rpm.raven.rule_encoder}
+  num_answers: ${num_answers}

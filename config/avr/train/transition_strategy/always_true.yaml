@@ -1,0 +1,1 @@
+_target_: avr.train.transition_strategy.AlwaysTrueTransitionStrategy

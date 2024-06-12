@@ -1,0 +1,13 @@
+_target_: avr.model.stsn.STSN
+height: ${image_size}
+width: ${image_size}
+num_rows: 3
+num_cols: 3
+feature_dim: 32
+encoder_num_slots: 9
+encoder_num_iterations: 3
+transformer_use_context_norm: True
+vit_depth: 6
+vit_num_heads: 8
+vit_mlp_dim: 512
+embedding_size: 128

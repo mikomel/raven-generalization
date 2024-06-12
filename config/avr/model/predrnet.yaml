@@ -1,0 +1,11 @@
+_target_: avr.model.predrnet.PredRNet
+embedding_size: 128
+num_filters: 32
+block_drop: 0.0
+classifier_drop: 0.0
+classifier_hidreduce: 1.0
+in_channels: 1
+num_classes: ${num_answers}
+num_extra_stages: 1
+reasoning_block_name: PredictiveReasoningBlock
+num_contexts: 8

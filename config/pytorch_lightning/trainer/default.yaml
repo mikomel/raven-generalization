@@ -1,0 +1,18 @@
+_target_: pytorch_lightning.Trainer
+max_epochs: ${max_epochs}
+accelerator: gpu
+devices: 1
+num_sanity_val_steps: 0
+precision: 16-mixed
+default_root_dir: ${log_dir}
+callbacks:
+  - _target_: pytorch_lightning.callbacks.EarlyStopping
+    monitor: ${monitor}
+    patience: ${early_stopping_patience}
+    verbose: True
+  - _target_: pytorch_lightning.callbacks.progress.TQDMProgressBar
+    refresh_rate: 5
+  - _target_: pytorch_lightning.callbacks.ModelCheckpoint
+    monitor: ${monitor}
+    verbose: True
+    save_top_k: 3

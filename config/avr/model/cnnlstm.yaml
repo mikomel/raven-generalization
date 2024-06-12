@@ -1,0 +1,5 @@
+_target_: avr.model.cnn_lstm.CnnLstm
+num_channels: 32
+embedding_size: 128
+image_size: ${image_size}
+use_layer_norm: True

@@ -1,0 +1,47 @@
+_target_: avr.model.pong.Pong
+image_size: ${image_size}
+embedding_size: 128
+num_rows: 3
+num_cols: 3
+
+# panel encoder
+panel_encoder_num_input_channels: 1
+panel_encoder_num_hidden_channels: 32
+panel_encoder_kernel_size: 7
+panel_encoder_stride: 2
+panel_encoder_padding: 3
+panel_encoder_activation_fn: ${nn:ReLU,inplace,True}
+panel_encoder_use_batch_norm: True
+panel_encoder_dropout: 0.0
+panel_encoder_num_blocks: 2
+panel_encoder_block_depth: 2
+panel_encoder_spatial_projection_output_ratio: 1.0
+
+# reasoner
+reasoner_output_dim: 16
+reasoner_kernel_size: 7
+reasoner_stride: 1
+reasoner_padding: 3
+reasoner_activation_fn: ${nn:ReLU,inplace,True}
+reasoner_use_batch_norm: True
+reasoner_dropout: 0.0
+reasoner_depth: 3
+reasoner_bottleneck_method: avgpool
+reasoner_bottleneck_ratios: ${List:0.125,0.25}
+reasoner_block_depth: 2
+reasoner_merge_method: sum
+reasoner_group_conv_merge_method: sum
+reasoner_group_conv_hidden_num_groups: 8
+reasoner_row_pair_group_conv_hidden_num_groups: 4
+reasoner_num_hidden_channels: 32
+reasoner_group_conv_use_norm: True
+reasoner_group_conv_use_pre_norm: False
+reasoner_use_row_group_conv: True
+reasoner_use_row_pair_group_conv: True
+reasoner_use_full_context_conv: True
+
+# output projection
+output_projection_num_blocks: 1
+output_projection_activation_fn: ${nn:ReLU,inplace,True}
+output_projection_use_batch_norm: True
+output_projection_dropout: 0.0
